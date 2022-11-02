@@ -5,6 +5,8 @@ console.log(
     city: "Pajeu Piaui",
     key: "eae55787-527c-4100-9150-56e20c32035e",
     name: "Mateus Pinto Garcia",
-    value: 100,
-  }).build()
+    description: "Vaquejada - Fazenda Pajeu",
+  })
+    .setValue(159)
+    .build()
 );

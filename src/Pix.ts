@@ -2,7 +2,7 @@ type PixProps = {
   key: string;
   name: string;
   city: string;
-  value: number;
+  value?: number;
   description?: string;
   transactionId?: string;
 };
@@ -54,6 +54,12 @@ class Pix {
     }
 
     return PixCommonsKeyID.CRC16 + "04" + result.toString(16).toUpperCase();
+  };
+
+  setValue = (value: number) => {
+    this.props.value = value;
+
+    return this;
   };
 
   private getMerchantAccountInformation = () => {
@@ -117,7 +123,7 @@ class Pix {
       .concat(
         this.getValue({
           id: PixCommonsKeyID.TRANSACTION_AMOUNT,
-          value: this.props.value.toString(),
+          value: this.props.value!.toString(),
         })
       )
       .concat(
